@@ -20,13 +20,16 @@ function App() {
   const fetchPokemon = async (page) => {
     try {
       let offset = (page - 1) * 20
-      if(offset < 0) offset = 0 
+      if(offset < 0) offset = 0
+      
+      let limit = 20
 
       const { data } = await axios({
         method: 'GET',
-        url: `${FETCH_ALL_POKEMONS_URL}/?limit=20&offset=${offset}`
+        url: `${FETCH_ALL_POKEMONS_URL}/?limit=${limit}&offset=${offset}`
       })
-      setTotalPages(Math.ceil(data.count / 20))
+      setPokemons(data.results)
+      setTotalPages(Math.ceil(data.count / limit))
       fetchPokemonDetails(data.results)
     } catch(err) {
       console.log(err, "<<ERR AXIOS")
@@ -37,7 +40,7 @@ function App() {
     let check = pokemons.find(({name}) => name === arr[0].name)
     if(check) return
     setPokemons([])
-
+    
     arr.forEach(async (pokemon) => {
       try {
         const { data } = await axios ({
@@ -58,6 +61,7 @@ function App() {
   useEffect(() => {
     setLoading(true)
     fetchPokemon(location.search.substring(6))
+    if(pokemons.length > 0) fetchPokemonDetails(pokemons)
   }, [location])
 
   const handlePageClick = (event) => {
@@ -77,7 +81,7 @@ function App() {
       <h1 className="text-3xl font-bold text-sky-900">
       Pokedex
       </h1>
-      <div className='mt-10 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-3'>
+      <div className='mt-10 grid grid-cols-1 xxs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-3'>
         <PokemonCard pokemons={pokemons}/>
       </div>
       <ReactPaginate

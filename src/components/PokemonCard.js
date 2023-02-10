@@ -19,7 +19,7 @@ export default function PokemonCard({pokemons}) {
         return (
             <div key={pokemon.name} onClick={() => checkDetails(pokemon.name)} className={`rounded-2xl cursor-pointer h-32 py-2 pl-4 bg-pokeball ${defineBackground(pokemon.types)}`}>
                 <h2 className='text-white font-extrabold truncate'>{capitalizeLetter(pokemon.name)}</h2>
-                <div className='flex justify-between'>
+                <div className='flex justify-between w-full'>
                     <div className='flex flex-col gap-1 mt-2'>
                         {pokemon.types.map(type => {
                             return (
@@ -27,7 +27,7 @@ export default function PokemonCard({pokemons}) {
                             )
                         })}
                     </div>
-                    <img className='picture-card' src={pokemon.sprites.front_default}/>
+                    <img className='w-1/2 xs:w-min picture-card' src={pokemon.sprites.front_default}/>
                 </div>
             </div>
         )
