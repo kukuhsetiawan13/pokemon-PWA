@@ -2,6 +2,10 @@
   width: 48%
 }
 
+.w-30p {
+  width: 30%;
+}
+
 .picture-card {
   height: 100px;
   width: 100px;

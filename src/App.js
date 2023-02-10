@@ -64,7 +64,8 @@ function App() {
       <h1 className="text-3xl font-bold text-sky-900">
       Pokedex
       </h1>
-      <div className='flex justify-center flex-wrap gap-3 mt-10'>
+      {/* <div className='flex justify-center flex-wrap gap-3 mt-10'> */}
+      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-3'>
         <PokemonCard pokemons={pokemons}/>
       </div>
       <ReactPaginate
