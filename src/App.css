@@ -71,64 +71,113 @@
 .bg-green {
   background-color: rgb(30, 180, 130);
 }
+.bg-green-label {
+  background-color: rgb(37, 216, 156);
+}
 
 .bg-red {
   background-color: rgb(209, 48, 48);
+}
+.bg-red-label {
+  background-color: rgb(255, 61, 61);
 }
 
 .bg-blue {
   background-color: rgb(4, 123, 202);
 }
+.bg-blue-label {
+  background-color: rgb(6, 150, 247);
+}
 
 .bg-yellow {
-  background-color: rgb(243, 240, 38);
+  background-color: rgb(196, 193, 31);
+}
+.bg-yellow-label {
+  background-color: rgb(224, 196, 33);
 }
 
 .bg-dark-green {
   background-color: rgb(55, 95, 28);
 }
+.bg-dark-green-label {
+  background-color: rgb(87, 150, 44);
+}
 
 .bg-light-blue {
   background-color: rgb(10, 92, 136);
+}
+.bg-light-blue-label {
+  background-color: rgb(27, 134, 192);
 }
 
 .bg-purple {
   background-color: rgb(113, 33, 204);
 }
+.bg-purple-label {
+  background-color: rgb(157, 87, 236);
+}
 
 .bg-dark-purple {
   background-color: rgb(73, 23, 131);
+}
+.bg-dark-purple-label {
+  background-color: rgb(103, 32, 184);
 }
 
 .bg-pink {
   background-color: rgb(181, 42, 194);
 }
+.bg-pink-label {
+  background-color: rgb(225, 59, 240);
+}
 
 .bg-brown {
   background-color: rgb(121, 59, 24);
+}
+.bg-brown-label {
+  background-color: rgb(163, 81, 34);
 }
 
 .bg-black {
   background-color: rgb(41, 36, 34);
 }
+.bg-black-label {
+  background-color: rgb(54, 50, 48);
+}
 
 .bg-normal {
   background-color: rgb(107, 98, 122);
+}
+.bg-normal-label {
+  background-color: rgb(140, 128, 158);
 }
 
 .bg-orange {
   background-color: rgb(248, 115, 6);
 }
+.bg-orange-label {
+  background-color: rgb(248, 147, 64);
+}
+
 
 .bg-maroon {
   background-color: rgb(129, 44, 10);
+}
+.bg-maroon-label {
+  background-color: rgb(189, 66, 17);
 }
 
 .bg-cyan {
   background-color: rgb(54, 194, 212);
 }
+.bg-cyan-label {
+  background-color: rgb(92, 229, 247);
+}
 
 .bg-light-pink {
   background-color: rgb(255, 38, 219);
+}
+.bg-light-pink-label {
+  background-color: rgb(245, 119, 234);
 }
 

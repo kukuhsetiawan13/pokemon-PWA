@@ -23,7 +23,7 @@ export default function PokemonCard({pokemons}) {
                     <div className='flex flex-col gap-1 mt-2'>
                         {pokemon.types.map(type => {
                             return (
-                                <Label px={4} name={type.type.name}/>
+                                <Label types={pokemon.types} px={4} name={type.type.name}/>
                             )
                         })}
                     </div>
