@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Label from '../components/Label'
 import About from '../components/PokemonDetails/About'
 import BaseStats from '../components/PokemonDetails/BaseStats'
@@ -17,6 +17,7 @@ import Lottie from "lottie-react";
 export default function PokemonDetails() {
 
   const params = useParams()
+  const navigate = useNavigate()
 
   const [pokemon, setPokemon] = useState({})
   const [section, setSection] = useState('About')
@@ -31,6 +32,7 @@ export default function PokemonDetails() {
       setPokemon(data)
       setLoading(false)
     } catch(err) {
+      navigate(-1)
       console.log(err)
     }
   }
