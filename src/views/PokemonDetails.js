@@ -10,6 +10,8 @@ import { FETCH_ALL_POKEMONS_URL } from '../store/url'
 import { capitalizeLetter } from '../utils/capitalizeLetter'
 import { defineBackground } from '../utils/defineBackground'
 import { formatOrder } from '../utils/formatOrder'
+import pokemonBall from '../data/pokemon-ball.json'
+import Lottie from "lottie-react";
 
 
 export default function PokemonDetails() {
@@ -18,6 +20,7 @@ export default function PokemonDetails() {
 
   const [pokemon, setPokemon] = useState({})
   const [section, setSection] = useState('About')
+  const [loading, setLoading] = useState(true)
 
   const fetchPokemonDetails = async () => {
     try {
@@ -26,12 +29,14 @@ export default function PokemonDetails() {
         url: `${FETCH_ALL_POKEMONS_URL}/${params.name}`
       })
       setPokemon(data)
+      setLoading(false)
     } catch(err) {
       console.log(err)
     }
   }
 
   useEffect(() => {
+    setLoading(true)
     fetchPokemonDetails()
   }, [])
 
@@ -40,6 +45,12 @@ export default function PokemonDetails() {
   }
 
   return (
+    <>
+    {loading &&
+      <div className='absolute flex w-full h-full justify-center items-center'>
+        <Lottie className='z-20 w-48 h-48 md:w-96 md:h-96' animationData={pokemonBall} loop={true} />
+      </div> 
+    }
     <div className={`bg-red-400 h-screen w-full ${pokemon?.types && pokemon.types.length > 0 ? defineBackground(pokemon?.types) : ''}`}>
       <div className='bg-pokeball-details h-2/5'>
         <div className='flex justify-between py-5 px-2 xxs:px-8'>
@@ -61,7 +72,7 @@ export default function PokemonDetails() {
           </h4>
         </div>
         <div className='flex justify-center'>
-          <img className='picture-details' src={pokemon.sprites?.front_default ? pokemon.sprites.front_default : ''}/>
+          <img className='picture-details' alt='pokemon-image' src={pokemon.sprites?.front_default ? pokemon.sprites.front_default : ''}/>
         </div>
       </div>
       <div className='bg-white h-full rounded-t-3xl pt-10 px-6 lg:px-52'>
@@ -85,5 +96,6 @@ export default function PokemonDetails() {
         }
       </div>
     </div>
+    </>
   )
 }
