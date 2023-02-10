@@ -12,7 +12,7 @@ import {
       element: <App/>
     },
     {
-        path: "/details",
+        path: "/details/:name",
         element: <PokemonDetails/>
     }
   ]);

@@ -2,6 +2,10 @@
   width: 48%
 }
 
+.h-48p {
+  height: 48%
+}
+
 .w-30p {
   width: 30%;
 }
@@ -40,8 +44,7 @@
 }
 
 .bg-pokeball {
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6)), url("./pictures/pokeball.png");
-  /* background-image: url('./pictures/pokeball.png'); */
+  background-image: url('./pictures/pokeball-transparent.png');
   background-size: contain;
 }
 
