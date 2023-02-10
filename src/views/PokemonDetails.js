@@ -78,13 +78,13 @@ export default function PokemonDetails() {
           <About pokemon={pokemon}/>
         }
         {section === 'Base Stats' &&
-          <BaseStats/>
+          <BaseStats stats={pokemon.stats}/>
         }
         {section === 'Evolution' &&
-          <Evolution/>
+          <Evolution pokemonSpeciesUrl={pokemon.species.url}/>
         }
         {section === 'Moves' &&
-          <Moves/>
+          <Moves moves={pokemon.moves}/>
         }
       </div>
     </div>
