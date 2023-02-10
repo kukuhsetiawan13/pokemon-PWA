@@ -15,15 +15,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   gap: 5px;
   font-weight: 400;
+  background-color: rgb(233, 235, 236);
+  border-radius: 5px;
+  width: fit-content;
+  margin: 20px auto
 }
 
 .pagination .page-num {
   cursor: pointer;
   border-radius: 3px;
   padding: 5px;
+  
 }
 
 .pagination .page-num:hover {
@@ -32,5 +36,80 @@
 }
 
 .pagination .active {
-  background-color: #5AB1BB;
+  background-color: #2f64b4;
 }
+
+.bg-pokeball {
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6)), url("./pictures/pokeball.png");
+  /* background-image: url('./pictures/pokeball.png'); */
+  background-size: contain;
+}
+
+.bg-pokeball:hover {
+  background-image: url('./pictures/pokeball.png');
+}
+
+.bg-green {
+  background-color: rgb(30, 180, 130);
+}
+
+.bg-red {
+  background-color: rgb(209, 48, 48);
+}
+
+.bg-blue {
+  background-color: rgb(4, 123, 202);
+}
+
+.bg-yellow {
+  background-color: rgb(243, 240, 38);
+}
+
+.bg-dark-green {
+  background-color: rgb(55, 95, 28);
+}
+
+.bg-light-blue {
+  background-color: rgb(10, 92, 136);
+}
+
+.bg-purple {
+  background-color: rgb(113, 33, 204);
+}
+
+.bg-dark-purple {
+  background-color: rgb(73, 23, 131);
+}
+
+.bg-pink {
+  background-color: rgb(181, 42, 194);
+}
+
+.bg-brown {
+  background-color: rgb(121, 59, 24);
+}
+
+.bg-black {
+  background-color: rgb(41, 36, 34);
+}
+
+.bg-normal {
+  background-color: rgb(107, 98, 122);
+}
+
+.bg-orange {
+  background-color: rgb(248, 115, 6);
+}
+
+.bg-maroon {
+  background-color: rgb(129, 44, 10);
+}
+
+.bg-cyan {
+  background-color: rgb(54, 194, 212);
+}
+
+.bg-light-pink {
+  background-color: rgb(255, 38, 219);
+}
+

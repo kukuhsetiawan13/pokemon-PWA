@@ -33,10 +33,11 @@ function App() {
     }
   }
 
-  const fetchPokemonDetails = (arr) => {
+  const fetchPokemonDetails = async (arr) => {
     let check = pokemons.find(({name}) => name === arr[0].name)
     if(check) return
     setPokemons([])
+
     arr.map(async (pokemon) => {
       try {
         const { data } = await axios ({
@@ -48,6 +49,7 @@ function App() {
         console.log(err)
       }
     })
+    
     setTimeout(() => {
       setLoading(false)
     }, 1000)
@@ -70,30 +72,25 @@ function App() {
 
   return (
     <>
-    {loading && 
-      <div className='absolute w-full h-full left-0 top-0 z-10 text-yellow-500 bg-black opacity-40'>
-        
-      </div>
-    }
     {loading &&
       <div className='absolute flex w-full h-full justify-center items-center'>
-        <Lottie className='z-20 w-96 h-96' animationData={pokemonBall} loop={true} />
+        <Lottie className='z-20 w-48 h-48 md:w-96 md:h-96' animationData={pokemonBall} loop={true} />
       </div> 
     }
     <div className='mt-10 p-2'>
       <h1 className="text-3xl font-bold text-sky-900">
       Pokedex
       </h1>
-      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-3'>
+      <div className='mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-3'>
         <PokemonCard pokemons={pokemons}/>
       </div>
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel="Next >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={totalPages}
-        previousLabel="< prev"
+        previousLabel="< Prev"
         renderOnZeroPageCount={null}
         containerClassName='pagination'
         pageLinkClassName='page-num'
