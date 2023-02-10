@@ -60,10 +60,6 @@ function App() {
     fetchPokemon(location.search.substring(6))
   }, [location])
 
-  useEffect(() => {
-    console.log(pokemons)
-  }, [pokemons]) // remove later
-
   const handlePageClick = (event) => {
     navigate(`/?page=${event.selected + 1}`)
   };

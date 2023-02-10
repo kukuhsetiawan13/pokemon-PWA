@@ -35,10 +35,6 @@ export default function PokemonDetails() {
     fetchPokemonDetails()
   }, [])
 
-  useEffect(() => {
-    console.log(pokemon)
-  }, [pokemon]) // remove later
-
   const changeSection = (section) => {
     setSection(section)
   }

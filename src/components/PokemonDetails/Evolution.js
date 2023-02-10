@@ -35,11 +35,10 @@ export default function Evolution({pokemonSpeciesUrl}) {
     }, [])
 
     useEffect(() => {
-        console.log(evolutionChain)
     }, [evolutionChain])
   return (
 
-    <div className='flex justify-between sm:px-32 lg:px-80'>
+    <div className='flex justify-between sm:px-32 lg:gap-16 xl:px-80'>
         <h4>{evolutionChain.chain?.species?.name ? capitalizeLetter(evolutionChain.chain?.species?.name) : ''}</h4>
         <h4>&rarr;</h4>
         <h4>{evolutionChain.chain?.evolves_to[0]?.species?.name ? capitalizeLetter(evolutionChain.chain?.evolves_to[0].species?.name) : 'n/a'}</h4>

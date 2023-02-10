@@ -1,5 +1,4 @@
 export const defineBackground = (arr) => {
-    console.log(arr)
     if(arr.find(el => el.type?.name === 'grass')) return 'bg-green'
     else if(arr.find(el => el.type?.name === 'fire')) return 'bg-red'
     else if(arr.find(el => el.type?.name === 'water')) return 'bg-blue'
@@ -20,7 +19,6 @@ export const defineBackground = (arr) => {
 }
 
 export const defineLabelBackground = (arr) => {
-    console.log(arr)
     if(arr.find(el => el.type?.name === 'grass')) return 'bg-green-label'
     else if(arr.find(el => el.type?.name === 'fire')) return 'bg-red-label'
     else if(arr.find(el => el.type?.name === 'water')) return 'bg-blue-label'
