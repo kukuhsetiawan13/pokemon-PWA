@@ -1,0 +1,1 @@
+export const FETCH_ALL_POKEMONS_URL = 'https://pokeapi.co/api/v2/pokemon'

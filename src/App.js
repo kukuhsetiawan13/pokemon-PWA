@@ -2,27 +2,38 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios'
 import PokemonCard from './components/PokemonCard';
-
+import ReactPaginate from 'react-paginate';
+import { FETCH_ALL_POKEMONS_URL } from './store/url';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function App() {
 
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const [pokemons, setPokemons] = useState([])
-  const [cancel, setCancel] = useState()
+  const [totalPages, setTotalPages] = useState(1)
 
-
-  const fetchPokemon = async () => {
+  const fetchPokemon = async (page) => {
     try {
+      let offset = (page - 1) * 20
+      if(offset < 0) offset = 0 
+
       const { data } = await axios({
         method: 'GET',
-        url: 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0'
+        url: `${FETCH_ALL_POKEMONS_URL}/?limit=20&offset=${offset}`
       })
+      setTotalPages(Math.ceil(data.count / 20))
       fetchPokemonDetails(data.results)
     } catch(err) {
-      console.log(err)
+      console.log(err, "<<ERR AXIOS")
     }
   }
 
-  const fetchPokemonDetails = async (arr) => {
+  const fetchPokemonDetails = (arr) => {
+    let check = pokemons.find(({name}) => name === arr[0].name)
+    if(check) return
+    setPokemons([])
     arr.map(async (pokemon) => {
       try {
         const { data } = await axios ({
@@ -37,12 +48,16 @@ function App() {
   }
 
   useEffect(() => {
-    fetchPokemon()
-  }, [])
+    fetchPokemon(location.search.substring(6))
+  }, [location])
 
   useEffect(() => {
     console.log(pokemons)
-  }, [pokemons])
+  }, [pokemons]) // remove later
+
+  const handlePageClick = (event) => {
+    navigate(`/?page=${event.selected + 1}`)
+  };
 
   return (
     <div className='mt-10 p-2'>
@@ -52,6 +67,21 @@ function App() {
       <div className='flex justify-center flex-wrap gap-3 mt-10'>
         <PokemonCard pokemons={pokemons}/>
       </div>
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={totalPages}
+        previousLabel="< prev"
+        renderOnZeroPageCount={null}
+        containerClassName='pagination'
+        pageLinkClassName='page-num'
+        previousLinkClassName='page-num'
+        nextLinkClassName='page-num'
+        activeLinkClassName='active'
+        initialPage={location?.search ? location.search.substring(6) - 1 : 0}
+      />
     </div>
   );
 }
