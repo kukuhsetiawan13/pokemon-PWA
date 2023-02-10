@@ -17,4 +17,5 @@ export const defineBackground = (arr) => {
     else if(arr.find(el => el.type?.name === 'dark')) return 'bg-black'
     else if(arr.find(el => el.type?.name === 'ghost')) return 'bg-dark-purple'
     else if(arr.find(el => el.type?.name === 'steel')) return 'bg-cyan'
+    else return 'bg-slate-600'
 }

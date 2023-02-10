@@ -8,6 +8,7 @@ import Evolution from '../components/PokemonDetails/Evolution'
 import Moves from '../components/PokemonDetails/Moves'
 import { FETCH_ALL_POKEMONS_URL } from '../store/url'
 import { capitalizeLetter } from '../utils/capitalizeLetter'
+import { defineBackground } from '../utils/defineBackground'
 import { formatOrder } from '../utils/formatOrder'
 
 
@@ -43,11 +44,11 @@ export default function PokemonDetails() {
   }
 
   return (
-    <div className='bg-red-400 h-screen'>
-      <div className='bg-pokeball h-2/5'>
-        <div className='flex justify-between py-5 px-8'>
+    <div className={`bg-red-400 h-screen w-full ${pokemon?.types && pokemon.types.length > 0 ? defineBackground(pokemon?.types) : ''}`}>
+      <div className='bg-pokeball-details h-2/5'>
+        <div className='flex justify-between py-5 px-2 xxs:px-8'>
           <div className='flex flex-col gap-3'>
-            <h2 className='text-white text-4xl font-extrabold'>
+            <h2 className='text-white text-4xl font-extrabold text-clip overflow-hidden'>
               {pokemon.name ? capitalizeLetter(pokemon?.name) : ''}
             </h2>
             <div className='flex gap-3'>
@@ -63,12 +64,12 @@ export default function PokemonDetails() {
             #{formatOrder(pokemon.order)}
           </h4>
         </div>
-        <img src={pokemon.sprites?.front_default ? pokemon.sprites.front_default : ''}
-          
-        />
+        <div className='flex justify-center'>
+          <img className='picture-details' src={pokemon.sprites?.front_default ? pokemon.sprites.front_default : ''}/>
+        </div>
       </div>
-      <div className='bg-white h-full rounded-t-3xl pt-10 px-6'>
-        <div className='justify-between flex gap-10 mb-5'>
+      <div className='bg-white h-full rounded-t-3xl pt-10 px-6 lg:px-52'>
+        <div className='justify-between flex gap-2 xxs:gap-10 mb-5'>
           <h3 onClick={() => changeSection('About')} className={`font-medium pb-5 cursor-pointer ${section === 'About'? 'border-b-2 border-black text-black' : 'text-slate-500'}`}>About</h3>
           <h3 onClick={() => changeSection('Base Stats')} className={`font-medium pb-5 cursor-pointer ${section === 'Base Stats'? 'border-b-2 border-black text-black' : 'text-slate-500'}`}>Base Stats</h3>
           <h3 onClick={() => changeSection('Evolution')} className={`font-medium pb-5 cursor-pointer ${section === 'Evolution'? 'border-b-2 border-black text-black' : 'text-slate-500'}`}>Evolution</h3>

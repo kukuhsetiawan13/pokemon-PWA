@@ -39,12 +39,12 @@ export default function Evolution({pokemonSpeciesUrl}) {
     }, [evolutionChain])
   return (
 
-    <div className='flex justify-between'>
+    <div className='flex justify-between sm:px-32 lg:px-80'>
         <h4>{evolutionChain.chain?.species?.name ? capitalizeLetter(evolutionChain.chain?.species?.name) : ''}</h4>
         <h4>&rarr;</h4>
-        <h4>{evolutionChain.chain?.evolves_to[0]?.species?.name ? capitalizeLetter(evolutionChain.chain?.evolves_to[0].species?.name) : ''}</h4>
+        <h4>{evolutionChain.chain?.evolves_to[0]?.species?.name ? capitalizeLetter(evolutionChain.chain?.evolves_to[0].species?.name) : 'n/a'}</h4>
         <h4>&rarr;</h4>
-        <h4>{evolutionChain.chain?.evolves_to[0]?.evolves_to[0]?.species?.name ? capitalizeLetter(evolutionChain.chain?.evolves_to[0]?.evolves_to[0]?.species?.name) : ''}</h4>
+        <h4>{evolutionChain.chain?.evolves_to[0]?.evolves_to[0]?.species?.name ? capitalizeLetter(evolutionChain.chain?.evolves_to[0]?.evolves_to[0]?.species?.name) : 'n/a'}</h4>
     </div>
   )
 }

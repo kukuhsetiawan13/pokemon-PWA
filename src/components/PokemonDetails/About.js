@@ -9,7 +9,7 @@ export default function About({pokemon}) {
     <div className='flex flex-col gap-4'>
         <div className='flex'>
             <h3 className='text-slate-500 w-28'>Species</h3>
-            <h3 className='text-black-500'>{pokemon.species?.name ? capitalizeLetter(pokemon.species?.name) : ''}</h3>
+            <h3 className='text-black-500 truncate'>{pokemon.species?.name ? capitalizeLetter(pokemon.species?.name) : ''}</h3>
         </div>
         <div className='flex'>
             <h3 className='text-slate-500 w-28'>Height</h3>
