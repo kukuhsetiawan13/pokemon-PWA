@@ -92,7 +92,7 @@ export default function PokemonDetails() {
           <Evolution pokemonSpeciesUrl={pokemon.species.url}/>
         }
         {section === 'Moves' &&
-          <Moves moves={pokemon.moves}/>
+          <Moves types={pokemon.types} moves={pokemon.moves}/>
         }
       </div>
     </div>

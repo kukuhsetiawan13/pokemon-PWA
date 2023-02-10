@@ -38,7 +38,7 @@ function App() {
     if(check) return
     setPokemons([])
 
-    arr.map(async (pokemon) => {
+    arr.forEach(async (pokemon) => {
       try {
         const { data } = await axios ({
           method: 'GET',
